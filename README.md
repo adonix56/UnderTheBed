@@ -10,14 +10,23 @@ Under The Bed is a game where the player guides a child who discovers a secret w
 
 ### Team T1 YSL Harrier
 **remi2838** - 1st Lead and 2D/3D Artist
+
 **Magatsu** - 2nd Lead and Programmer
+
 **bootmanreturns** - Game Designer
+
 **ADONiX** - Programmer
+
 **Dena** - UX Designer
+
 **CartoonBoy360** - 2D Artist and Animator
+
 **Nick** - Sound Designer
+
 **Gladio_007** - Sound Designer
+
 **joeschmo0892** - Producer
+
 **Axis of Axis** - Producer
 
 ---
