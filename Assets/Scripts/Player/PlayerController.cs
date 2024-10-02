@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public event EventHandler JumpPressed;
     public event EventHandler InteractPressed;
+    public event EventHandler ShowControlsPressed;
     private PlayerControls playerControls;
 
     private void Awake()
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
         playerControls.Player.Jump.performed += JumpPerformed;
         playerControls.Player.Interact.performed += InteractPerformed;
+        playerControls.Player.ShowControls.performed += ShowControlsPerformed;
     }
 
     private void OnEnable()
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour
     private void InteractPerformed(InputAction.CallbackContext obj)
     {
         InteractPressed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void ShowControlsPerformed(InputAction.CallbackContext obj)
+    {
+        ShowControlsPressed?.Invoke(this, EventArgs.Empty);
     }
 
     public float GetMoveInput()
