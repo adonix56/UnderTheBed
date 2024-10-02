@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpSpeed: 15
+  jumpSpeed: 18
   gravityScale: 5
 --- !u!54 &1341106899
 Rigidbody:
