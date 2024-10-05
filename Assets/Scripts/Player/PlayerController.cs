@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
         playerControls.Player.Jump.performed += JumpPerformed;
         playerControls.Player.Interact.performed += InteractPerformed;
         playerControls.Player.ShowControls.performed += ShowControlsPerformed;
+        playerControls.Player.ExitGame.performed += ExitGamePerformed;
     }
 
     private void OnEnable()
@@ -43,6 +44,10 @@ public class PlayerController : MonoBehaviour
     private void ShowControlsPerformed(InputAction.CallbackContext obj)
     {
         ShowControlsPressed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void ExitGamePerformed(InputAction.CallbackContext obj) { 
+        Application.Quit();
     }
 
     public float GetMoveInput()
