@@ -93,13 +93,18 @@ public class PlayerMovement : MonoBehaviour
         {
             float distanceToMove = movement >= 0f ? positionToMove.magnitude : -1 * positionToMove.magnitude;
             distanceAxis = Mathf.Clamp(distanceAxis + distanceToMove, minClamp, maxClamp);
-            axisOfMovement = Vector3.Lerp(startAxis, endAxis, distanceAxis / maxDistanceAxis);
+            axisOfMovement = Vector3.Slerp(startAxis, endAxis, distanceAxis / maxDistanceAxis);
             float yVal = distanceAxis / maxDistanceAxis * targetYRotation;
             if (maxDistanceAxis < 0) yVal = targetYRotation - yVal;
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, yVal, transform.rotation.eulerAngles.z);
             Transform virtualCamera = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera.VirtualCameraGameObject.transform;
             virtualCamera.rotation = Quaternion.Euler(virtualCamera.rotation.eulerAngles.x, yVal, virtualCamera.rotation.eulerAngles.z);
         }
+    }
+
+    public void SetAxisMovement(Vector3 axisMovement)
+    {
+        axisOfMovement = axisMovement;
     }
 
     public Vector3 GetAxisOfMovement()
