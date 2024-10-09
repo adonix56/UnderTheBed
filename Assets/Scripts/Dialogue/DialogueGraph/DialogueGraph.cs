@@ -10,6 +10,8 @@ namespace Dialogue.Editor
     {
         DialogueSO selectedDialogue = null;
         GUIStyle nodeStyle;
+        DialogueNode draggingNode = null;
+        Vector2 offset = new Vector2();
 
         [MenuItem("Window/Dialogue Graph")]
         public static void ShowEditorWindow() {
@@ -54,6 +56,7 @@ namespace Dialogue.Editor
                 EditorGUILayout.LabelField("No Dialogue Selected");
             } else
             {
+                ProcessEvents();
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
                     OnGUINode(node);
@@ -62,9 +65,28 @@ namespace Dialogue.Editor
             }
         }
 
+        private void ProcessEvents()
+        {
+            if (Event.current.type == EventType.MouseDown && draggingNode == null)
+            {
+                draggingNode = selectedDialogue.GetNode(Event.current.mousePosition);
+                if (draggingNode != null) {
+                    offset = draggingNode.rectPosition.position - Event.current.mousePosition;
+                }
+            } else if (Event.current.type == EventType.MouseDrag && draggingNode != null)
+            {
+                Undo.RecordObject(selectedDialogue, "Dialogue Node Reposition");
+                draggingNode.rectPosition.position = Event.current.mousePosition + offset;
+                GUI.changed = true;
+            } else if (Event.current.type == EventType.MouseUp && draggingNode != null)
+            {
+                draggingNode = null;
+            } 
+        }
+
         private void OnGUINode(DialogueNode node)
         {
-            GUILayout.BeginArea(node.position, nodeStyle);
+            GUILayout.BeginArea(node.rectPosition, nodeStyle);
             EditorGUI.BeginChangeCheck();
             string newNodeID = EditorGUILayout.TextField(node.nodeID);
             string newText = EditorGUILayout.TextField(node.text);

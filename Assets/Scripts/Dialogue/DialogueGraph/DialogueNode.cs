@@ -9,5 +9,5 @@ public class DialogueNode
     public string text;
     public List<string> children;
 
-    public Rect position;
+    public Rect rectPosition = new Rect(0, 0, 200, 100);
 }

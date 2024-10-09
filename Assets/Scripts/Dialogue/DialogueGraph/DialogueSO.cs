@@ -23,5 +23,17 @@ namespace Dialogue
         public IEnumerable<DialogueNode> GetAllNodes() {
             return nodes;
         }
+
+        public DialogueNode GetNode(Vector2 mousePosition)
+        {
+            for (int i = nodes.Count - 1; i >= 0; i--)
+            {
+                if (nodes[i].rectPosition.Contains(mousePosition))
+                {
+                    return nodes[i];
+                }
+            }
+            return null;
+        }
     }
 }
