@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.Callbacks;
+using System;
 
 namespace Dialogue.Editor
 {
@@ -59,8 +60,11 @@ namespace Dialogue.Editor
                 ProcessEvents();
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    OnGUINode(node);
-
+                    DrawConnections(node);
+                }
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
+                {
+                    DrawNode(node);
                 }
             }
         }
@@ -84,11 +88,11 @@ namespace Dialogue.Editor
             } 
         }
 
-        private void OnGUINode(DialogueNode node)
+        private void DrawNode(DialogueNode node)
         {
             GUILayout.BeginArea(node.rectPosition, nodeStyle);
             EditorGUI.BeginChangeCheck();
-            string newNodeID = EditorGUILayout.TextField(node.nodeID);
+            EditorGUILayout.LabelField(node.nodeID);
             string newText = EditorGUILayout.TextField(node.text);
             if (EditorGUI.EndChangeCheck())
             {
@@ -97,6 +101,23 @@ namespace Dialogue.Editor
                 node.text = newText;
             }
             GUILayout.EndArea();
+        }
+
+        private void DrawConnections(DialogueNode node)
+        {
+            Vector3 startPosition = new Vector2(node.rectPosition.xMax, node.rectPosition.center.y);
+            foreach (DialogueNode childNode in selectedDialogue.GetChildren(node)) {
+                //EditorGUILayout.LabelField(childNode.text);
+                Vector3 endPosition = new Vector2(childNode.rectPosition.xMin, childNode.rectPosition.center.y);
+                DrawNodeConnection(startPosition, endPosition);
+            }
+        }
+
+        private void DrawNodeConnection(Vector3 start, Vector3 end)
+        {
+            Vector3 tangentOffset = new Vector2(Mathf.Abs(start.x - end.x) * 0.6f, 0f);
+            Color bezierColor = start.x - end.x > 0 ? Color.red : Color.white;
+            Handles.DrawBezier(start, end, start + tangentOffset, end - tangentOffset, bezierColor, null, 4f);
         }
     }
 }
