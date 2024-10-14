@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class aim : MonoBehaviour
 {
+    public GameObject light;
     private Vector3 mousePos;
+    private bool lightOn = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+     
     }
 
     // Update is called once per frame
@@ -23,5 +25,16 @@ public class aim : MonoBehaviour
         float rotationZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         //sets rotation based on point for cone
         transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+
+        if (Input.GetButtonDown("light") && lightOn == true)
+        {
+            lightOn = false;
+            light.SetActive(false);
+        }
+        else if (Input.GetButtonDown("light") && lightOn == false)
+        {
+            lightOn = true;
+            light.SetActive(true);
+        }
     }
 }
