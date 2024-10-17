@@ -10,9 +10,16 @@ namespace Dialogue.Editor
     public class DialogueGraph : EditorWindow
     {
         DialogueSO selectedDialogue = null;
+        [NonSerialized]
         GUIStyle nodeStyle;
+        [NonSerialized]
         DialogueNode draggingNode = null;
+        [NonSerialized]
         Vector2 offset = new Vector2();
+        [NonSerialized]
+        DialogueNode creatingNode = null;
+        [NonSerialized]
+        DialogueNode deletingNode = null;
 
         [MenuItem("Window/Dialogue Graph")]
         public static void ShowEditorWindow() {
@@ -57,24 +64,54 @@ namespace Dialogue.Editor
                 EditorGUILayout.LabelField("No Dialogue Selected");
             } else
             {
-                ProcessEvents();
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    DrawConnections(node);
+                    DrawNodeConnections(node);
                 }
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
                     DrawNode(node);
                 }
+                ProcessNodeChanges();
+                ProcessEvents();
             }
+            Repaint();
         }
 
         private void ProcessEvents()
         {
+            if (Event.current.button == 0)
+            {
+                LeftMouseEvents();
+            } else if (Event.current.button == 1)
+            {
+                RightMouseEvents();
+            }
+        }
+
+        private void ProcessNodeChanges()
+        {
+            if (creatingNode != null)
+            {
+                Undo.RecordObject(selectedDialogue, "Added New Dialogue Node");
+                selectedDialogue.CreateNewNode(creatingNode);
+                creatingNode = null;
+            }
+            if (deletingNode != null)
+            {
+                Undo.RecordObject(selectedDialogue, "Deleted Dialogue Node");
+                selectedDialogue.DeleteNode(deletingNode);
+                deletingNode = null;
+            }
+        }
+
+        private void LeftMouseEvents()
+        {
             if (Event.current.type == EventType.MouseDown && draggingNode == null)
             {
                 draggingNode = selectedDialogue.GetNode(Event.current.mousePosition);
-                if (draggingNode != null) {
+                if (draggingNode != null)
+                {
                     offset = draggingNode.rectPosition.position - Event.current.mousePosition;
                 }
             } else if (Event.current.type == EventType.MouseDrag && draggingNode != null)
@@ -85,7 +122,34 @@ namespace Dialogue.Editor
             } else if (Event.current.type == EventType.MouseUp && draggingNode != null)
             {
                 draggingNode = null;
-            } 
+            }
+        }
+
+        private void RightMouseEvents()
+        {
+            if (Event.current.type == EventType.MouseDown)
+            {
+                Debug.Log("Right Click Down");
+                draggingNode = selectedDialogue.GetNode(Event.current.mousePosition);
+                if (draggingNode != null)
+                {
+                    offset = draggingNode.rectPosition.position - Event.current.mousePosition;
+                }
+                Event.current.Use();
+            } else if (Event.current.type == EventType.MouseDrag && draggingNode != null)
+            {
+                Vector3 startPosition = new Vector2(draggingNode.rectPosition.xMax, draggingNode.rectPosition.center.y);
+                Vector3 endPosition = Event.current.mousePosition;
+                //Debug.Log($"Right Click Drag {startPosition} and {endPosition}");
+                DrawConnection(startPosition, endPosition);
+                GUI.changed = true;
+                Event.current.Use();
+            } else if (Event.current.type == EventType.MouseUp && draggingNode != null)
+            {
+                Debug.Log("Right Click End");
+                draggingNode = null;
+                Event.current.Use();
+            }
         }
 
         private void DrawNode(DialogueNode node)
@@ -97,24 +161,36 @@ namespace Dialogue.Editor
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(selectedDialogue, "Dialogue Text Changed");
-                node.nodeID = newNodeID;
                 node.text = newText;
             }
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("+"))
+            {
+                creatingNode = node;
+            }
+
+            if (GUILayout.Button("-"))
+            {
+                deletingNode = node;
+            }
+            GUILayout.EndHorizontal();
             GUILayout.EndArea();
         }
 
-        private void DrawConnections(DialogueNode node)
+        private void DrawNodeConnections(DialogueNode node)
         {
             Vector3 startPosition = new Vector2(node.rectPosition.xMax, node.rectPosition.center.y);
             foreach (DialogueNode childNode in selectedDialogue.GetChildren(node)) {
                 //EditorGUILayout.LabelField(childNode.text);
                 Vector3 endPosition = new Vector2(childNode.rectPosition.xMin, childNode.rectPosition.center.y);
-                DrawNodeConnection(startPosition, endPosition);
+                DrawConnection(startPosition, endPosition);
             }
         }
 
-        private void DrawNodeConnection(Vector3 start, Vector3 end)
+        private void DrawConnection(Vector3 start, Vector3 end)
         {
+            //Debug.Log($"Drawing {start}, {end}");
             Vector3 tangentOffset = new Vector2(Mathf.Abs(start.x - end.x) * 0.6f, 0f);
             Color bezierColor = start.x - end.x > 0 ? Color.red : Color.white;
             Handles.DrawBezier(start, end, start + tangentOffset, end - tangentOffset, bezierColor, null, 4f);

@@ -65,10 +65,21 @@ namespace Dialogue
         {
             DialogueNode newNode = new DialogueNode();
             newNode.nodeID = Guid.NewGuid().ToString();
+            nodes.Add(newNode);
             nodeLookup[newNode.nodeID] = newNode;
             if (parent != null)
                 parent.children.Add(newNode.nodeID);
             return newNode;
+        }
+
+        public void DeleteNode(DialogueNode nodeToDelete)
+        {
+            nodes.Remove(nodeToDelete);
+            OnValidate();
+            foreach (DialogueNode node in nodes)
+            {
+                node.children.Remove(nodeToDelete.nodeID);
+            }
         }
     }
 }

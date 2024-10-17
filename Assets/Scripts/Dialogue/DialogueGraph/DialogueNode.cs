@@ -9,7 +9,7 @@ public class DialogueNode
     public string nodeID;
     public string text;
     public List<string> children = new List<string>();
-
+    [HideInInspector]
     public Rect rectPosition = new Rect(0, 0, 200, 100);
 
 }
