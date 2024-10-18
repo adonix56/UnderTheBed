@@ -30,14 +30,18 @@ public class PlayerMovement : MonoBehaviour
     private PlayerController playerController;
     private Rigidbody rb;
 
+    private void Awake()
+    {
+        //TEST
+        axisOfMovement = new Vector3(1f, 0f, 0f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<PlayerController>();
         playerController.JumpPressed += Jump;
         rb = GetComponent<Rigidbody>();
-        //TEST
-        axisOfMovement = new Vector3(1f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -83,7 +87,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 positionToMove = axisOfMovement * movement * speed * Time.fixedDeltaTime;
         CalculateRotation(positionToMove);
-        rb.MovePosition(transform.position + positionToMove);
+        //rb.MovePosition(transform.position + positionToMove);
+        transform.position += positionToMove;
         rb.AddForce(Physics.gravity * (gravityScale - 1) * rb.mass); 
     }
 
