@@ -5,6 +5,8 @@ using UnityEngine;
 public class InteractTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject interactCanvas;
+    [SerializeField] private CharacterSO leftCharacter;
+    [SerializeField] private CharacterSO rightCharacter;
 
     //TODO: Testing purposes, remove later
     [SerializeField] private DialogueCanvas dialogueCanvas;
@@ -42,6 +44,7 @@ public class InteractTrigger : MonoBehaviour
         if (dialogueCanvas)
         {
             dialogueCanvas.ActivateDialogue(alternateLeftSpeaker);
+            dialogueCanvas.SetSpeakers(leftCharacter, rightCharacter);
             alternateLeftSpeaker = !alternateLeftSpeaker;
         }
     }

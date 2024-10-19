@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private float maxClamp;
     private float targetYRotation;
     private PlayerController playerController;
+    private PlayerAnimation playerAnimation;
     private Rigidbody rb;
 
     private void Awake()
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
         playerController.JumpPressed += Jump;
+        playerAnimation = GetComponent<PlayerAnimation>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -48,7 +50,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movement = playerController.GetMoveInput();
-        isGrounded = Physics.CheckBox(transform.position, boxSize, transform.rotation, platformMask); 
+        isGrounded = Physics.CheckBox(transform.position, boxSize, transform.rotation, platformMask);
+        playerAnimation.SetGrounded(isGrounded);
+        playerAnimation.SetWalking(!Mathf.Approximately(movement, 0f));
+        playerAnimation.FaceLeft(movement);
         if (isGrounded && lastGroundedTime <= 0f) // Grounded after delay
         {
             jumpNum = 0;
