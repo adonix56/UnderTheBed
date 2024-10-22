@@ -15,8 +15,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask platformMask;
 
     private float lastGroundedTime;
+    private float jumpDelay;
     private bool isGrounded;
     private bool isRotating;
+    private bool isJumping;
     private int jumpNum;
     private float movement;
     [SerializeField] private Vector3 axisOfMovement;
@@ -51,20 +53,32 @@ public class PlayerMovement : MonoBehaviour
     {
         movement = playerController.GetMoveInput();
         isGrounded = Physics.CheckBox(transform.position, boxSize, transform.rotation, platformMask);
-        playerAnimation.SetGrounded(isGrounded);
         playerAnimation.SetWalking(!Mathf.Approximately(movement, 0f));
         playerAnimation.FaceLeft(movement);
-        if (isGrounded && lastGroundedTime <= 0f) // Grounded after delay
+        if (isJumping)
         {
-            jumpNum = 0;
-        }
-        else if (!isGrounded && jumpNum == 0) // Not grounded when jumping (fall off edge)
+            if (jumpDelay < 0f)
+            {
+                isJumping = false;
+                playerAnimation.SetJumping(false);
+            }
+            jumpDelay -= Time.deltaTime;
+        } else
         {
-            jumpNum = 1;
-        }
-        if (lastGroundedTime > 0f) // Decrease time when delay started
-        {
-            lastGroundedTime -= Time.deltaTime;
+            if (isGrounded && lastGroundedTime <= 0f) // Grounded after delay
+            {
+                //playerAnimation.SetGrounded(true);
+                jumpNum = 0;
+            } else if (!isGrounded && jumpNum == 0) // Not grounded when jumping (fall off edge)
+            {
+                //playerAnimation.SetGrounded(false);
+                jumpNum = 1;
+            }
+            if (lastGroundedTime > 0f) // Decrease time when delay started
+            {
+                lastGroundedTime -= Time.deltaTime;
+            }
+            playerAnimation.SetGrounded(isGrounded);
         }
     }
 
@@ -84,7 +98,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpNum == 0) lastGroundedTime = groundCheckDelay;
             jumpNum++;
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            isJumping = true;
+            jumpDelay = 0.1f;
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse); 
+            playerAnimation.SetGrounded(false);
+            playerAnimation.SetJumping(true);
         }
     }
 

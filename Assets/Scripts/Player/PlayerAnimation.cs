@@ -6,7 +6,13 @@ public class PlayerAnimation : MonoBehaviour
 {
     private const string ISWALKING = "IsWalking";
     private const string ISGROUNDED = "IsGrounded";
+    private const string ISJUMPING = "IsJumping";
     [SerializeField] private Animator animator;
+
+    private void Awake()
+    {
+        animator.keepAnimatorStateOnDisable = true;
+    }
 
     public void SetWalking(bool isWalking)
     {
@@ -21,6 +27,14 @@ public class PlayerAnimation : MonoBehaviour
         if (animator)
         {
             animator.SetBool(ISGROUNDED, isGrounded);
+        }
+    }
+
+    public void SetJumping(bool isJumping)
+    {
+        if (animator)
+        {
+            animator.SetBool(ISJUMPING, isJumping);
         }
     }
 

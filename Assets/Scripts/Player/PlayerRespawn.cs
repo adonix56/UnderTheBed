@@ -9,6 +9,7 @@ public class PlayerRespawn : MonoBehaviour
 
     [SerializeField] private bool IsDead;
     [SerializeField] private float timer;
+    [SerializeField] private GameObject playerSprite;
     private ICinemachineCamera followCamera;
     private Vector3 respawnPosition;
     private Quaternion respawnRotation;
@@ -27,8 +28,9 @@ public class PlayerRespawn : MonoBehaviour
         respawnAxisMovement = playerMovement.GetAxisOfMovement();
     }
 
-    public void SetDead()
+    public void SetDead(bool removeSprite = false)
     {
+        if (removeSprite) playerSprite.SetActive(!removeSprite);
         followCamera.Follow = null;
         timer = respawnTimer;
         IsDead = true;
@@ -46,6 +48,7 @@ public class PlayerRespawn : MonoBehaviour
             {
                 transform.position = respawnPosition;
                 transform.rotation = respawnRotation;
+                playerSprite.SetActive(true);
                 followCamera.VirtualCameraGameObject.transform.rotation = respawnCameraRotation;
                 IsDead = false;
                 followCamera.Follow = transform;
