@@ -1,0 +1,109 @@
+{
+	"Version": 3,
+	"Meta": {
+		"Duration": 0.867,
+		"Fps": 30.0,
+		"Loop": true,
+		"AreBeziersRestricted": true,
+		"CurveCount": 5,
+		"TotalSegmentCount": 11,
+		"TotalPointCount": 26,
+		"UserDataCount": 0,
+		"TotalUserDataSize": 0
+	},
+	"Curves": [
+		{
+			"Target": "Parameter",
+			"Id": "ArmMove",
+			"Segments": [
+				0,
+				0,
+				1,
+				0.044,
+				0,
+				0.089,
+				0,
+				0.133,
+				0,
+				0,
+				0.867,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "Param2",
+			"Segments": [
+				0,
+				-0.013,
+				1,
+				0.044,
+				-0.013,
+				0.089,
+				0,
+				0.133,
+				0,
+				0,
+				0.867,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "jump",
+			"Segments": [
+				0,
+				3.787,
+				0,
+				0.033,
+				5,
+				2,
+				0.133,
+				0,
+				0,
+				0.867,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "Param",
+			"Segments": [
+				0,
+				1.987,
+				0,
+				0.867,
+				1.987
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "Param6",
+			"Segments": [
+				0,
+				0,
+				1,
+				0.044,
+				0,
+				0.089,
+				0,
+				0.133,
+				0,
+				1,
+				0.189,
+				0,
+				0.244,
+				1.921,
+				0.3,
+				2.5,
+				1,
+				0.489,
+				4.469,
+				0.678,
+				5,
+				0.867,
+				5
+			]
+		}
+	]
+}

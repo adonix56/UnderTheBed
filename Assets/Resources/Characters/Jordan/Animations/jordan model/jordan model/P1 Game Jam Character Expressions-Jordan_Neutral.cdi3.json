@@ -1,0 +1,47 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ArmMove",
+			"GroupId": "",
+			"Name": "arm movement"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "body idle"
+		},
+		{
+			"Id": "Param4",
+			"GroupId": "",
+			"Name": "running tilt"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "body idle"
+		},
+		{
+			"Id": "jump",
+			"GroupId": "",
+			"Name": "jump"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "leg movement"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "",
+			"Name": "leg movement"
+		},
+		{
+			"Id": "Param6",
+			"GroupId": "",
+			"Name": "falling"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": []
+}

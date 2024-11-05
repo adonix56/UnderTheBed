@@ -1,0 +1,22 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "P1 Game Jam Character Expressions-Jordan_Neutral.moc3",
+		"Textures": [
+			"P1 Game Jam Character Expressions-Jordan_Neutral.1024/texture_00.png"
+		],
+		"DisplayInfo": "P1 Game Jam Character Expressions-Jordan_Neutral.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}
