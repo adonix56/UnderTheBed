@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403ae2dd693bb1d4b924f6b8d206b053, type: 3}
   m_Name: jordan model.fadeMotionList
   m_EditorClassIdentifier: 
-  MotionInstanceIds: 244fffffee4effffc64effff9e4effff
+  MotionInstanceIds: 501fffff381fffff241fffff101ffffffc1effffe81effffd41effff
   CubismFadeMotionObjects:
-  - {fileID: 11400000, guid: da76ff6c161cee7488530bbd63f0a884, type: 2}
-  - {fileID: 11400000, guid: a5fc34e37141ba248be3e19ba109969c, type: 2}
-  - {fileID: 11400000, guid: e0b58549d0b065a4f812dede2d4f64a9, type: 2}
-  - {fileID: 11400000, guid: 6fd87a35a1c8b27499764bef953d97b3, type: 2}
+  - {fileID: 11400000, guid: 7b29bd2740619c949b467b5039dcb31f, type: 2}
+  - {fileID: 11400000, guid: 49a6acf06aaf49b46ba703728b3f9455, type: 2}
+  - {fileID: 11400000, guid: 55b9c1570e8ed714a9b3ed91a650a165, type: 2}
+  - {fileID: 11400000, guid: 7cc43308e508e1146975e1f78a10d707, type: 2}
+  - {fileID: 11400000, guid: bffdc52c80cd754428b03112ac21cece, type: 2}
+  - {fileID: 11400000, guid: fb1e1597079ca9148a56711fd067d266, type: 2}
+  - {fileID: 11400000, guid: e5e4d22fded9fd0489c66c523831c87c, type: 2}
