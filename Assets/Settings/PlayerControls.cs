@@ -71,6 +71,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FlashlightAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""552d8f28-c5f7-49df-9dd4-d2a6968de2dc"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Flashlight"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6871a30-1f55-4a19-9e25-7b7ff04ab1eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -183,6 +201,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ExitGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77fd0d07-7831-4480-b5d5-0ca7c02e07f1"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FlashlightAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18f1d168-bf2b-4b5c-bc98-657315a1f407"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flashlight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be70d208-a04d-4e47-83f3-7417d4f314ed"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flashlight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,6 +247,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_ShowControls = m_Player.FindAction("ShowControls", throwIfNotFound: true);
         m_Player_ExitGame = m_Player.FindAction("ExitGame", throwIfNotFound: true);
+        m_Player_FlashlightAim = m_Player.FindAction("FlashlightAim", throwIfNotFound: true);
+        m_Player_Flashlight = m_Player.FindAction("Flashlight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,6 +315,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_ShowControls;
     private readonly InputAction m_Player_ExitGame;
+    private readonly InputAction m_Player_FlashlightAim;
+    private readonly InputAction m_Player_Flashlight;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -271,6 +326,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @ShowControls => m_Wrapper.m_Player_ShowControls;
         public InputAction @ExitGame => m_Wrapper.m_Player_ExitGame;
+        public InputAction @FlashlightAim => m_Wrapper.m_Player_FlashlightAim;
+        public InputAction @Flashlight => m_Wrapper.m_Player_Flashlight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -295,6 +352,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ExitGame.started += instance.OnExitGame;
             @ExitGame.performed += instance.OnExitGame;
             @ExitGame.canceled += instance.OnExitGame;
+            @FlashlightAim.started += instance.OnFlashlightAim;
+            @FlashlightAim.performed += instance.OnFlashlightAim;
+            @FlashlightAim.canceled += instance.OnFlashlightAim;
+            @Flashlight.started += instance.OnFlashlight;
+            @Flashlight.performed += instance.OnFlashlight;
+            @Flashlight.canceled += instance.OnFlashlight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -314,6 +377,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ExitGame.started -= instance.OnExitGame;
             @ExitGame.performed -= instance.OnExitGame;
             @ExitGame.canceled -= instance.OnExitGame;
+            @FlashlightAim.started -= instance.OnFlashlightAim;
+            @FlashlightAim.performed -= instance.OnFlashlightAim;
+            @FlashlightAim.canceled -= instance.OnFlashlightAim;
+            @Flashlight.started -= instance.OnFlashlight;
+            @Flashlight.performed -= instance.OnFlashlight;
+            @Flashlight.canceled -= instance.OnFlashlight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -338,5 +407,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnShowControls(InputAction.CallbackContext context);
         void OnExitGame(InputAction.CallbackContext context);
+        void OnFlashlightAim(InputAction.CallbackContext context);
+        void OnFlashlight(InputAction.CallbackContext context);
     }
 }

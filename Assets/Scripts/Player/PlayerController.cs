@@ -6,6 +6,8 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public event EventHandler FlashlightStarted;
+    public event EventHandler FlashlightEnded;
     public event EventHandler JumpPressed;
     public event EventHandler InteractPressed;
     public event EventHandler ShowControlsPressed;
@@ -15,6 +17,9 @@ public class PlayerController : MonoBehaviour
     {
         playerControls = new PlayerControls();
 
+        //playerControls.Player.Flashlight.performed += FlashlightPerformed;
+        playerControls.Player.Flashlight.started += FlashlightStart;
+        playerControls.Player.Flashlight.canceled += FlashlightEnd;
         playerControls.Player.Jump.performed += JumpPerformed;
         playerControls.Player.Interact.performed += InteractPerformed;
         playerControls.Player.ShowControls.performed += ShowControlsPerformed;
@@ -29,6 +34,16 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         playerControls.Disable();
+    }
+
+    private void FlashlightStart(InputAction.CallbackContext obj)
+    {
+        FlashlightStarted?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void FlashlightEnd(InputAction.CallbackContext obj)
+    {
+        FlashlightEnded?.Invoke(this, EventArgs.Empty);
     }
 
     private void JumpPerformed(InputAction.CallbackContext obj)
@@ -53,5 +68,10 @@ public class PlayerController : MonoBehaviour
     public float GetMoveInput()
     {
         return playerControls.Player.Move.ReadValue<float>();
+    }
+
+    public Vector2 GetFlashlightAim()
+    {
+        return playerControls.Player.FlashlightAim.ReadValue<Vector2>();
     }
 }

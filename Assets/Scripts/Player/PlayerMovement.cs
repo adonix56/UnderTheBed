@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         movement = playerController.GetMoveInput();
         isGrounded = Physics.CheckBox(transform.position, boxSize, transform.rotation, platformMask);
         playerAnimation.SetWalking(!Mathf.Approximately(movement, 0f));
-        playerAnimation.FaceLeft(movement);
+        playerAnimation.SetFaceDirection(movement);
         if (isJumping)
         {
             if (jumpDelay < 0f)

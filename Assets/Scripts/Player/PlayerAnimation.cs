@@ -7,11 +7,15 @@ public class PlayerAnimation : MonoBehaviour
     private const string ISWALKING = "IsWalking";
     private const string ISGROUNDED = "IsGrounded";
     private const string ISJUMPING = "IsJumping";
+    private const string SPEEDMULTIPLIER = "SpeedMultiplier";
     [SerializeField] private Animator animator;
+
+    private Flashlight flashlight;
 
     private void Awake()
     {
         animator.keepAnimatorStateOnDisable = true;
+        flashlight = GetComponent<Flashlight>();
     }
 
     public void SetWalking(bool isWalking)
@@ -38,12 +42,33 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
-    public void FaceLeft(float movement)
+    public void SetFaceDirection(float movement)
     {
-        if (animator && !Mathf.Approximately(movement, 0f)) 
+        if (animator)
         {
             Quaternion newRotation = new Quaternion();
-            newRotation.eulerAngles = movement < 0 ? new Vector3(0f, 180f, 0f) : Vector3.zero;
+            Vector3 eulerAngles = new Vector3();
+            bool moving = !Mathf.Approximately(movement, 0f);
+            if (moving)
+            {
+                eulerAngles = movement < 0 ? new Vector3(0f, 180f, 0f) : Vector3.zero;
+            }
+            if (flashlight.FlashlightActive)
+            {
+                if (flashlight.FlashlightDot < 0)
+                {
+                    eulerAngles = new Vector3(0f, 180f, 0f);
+                    if (movement < 0) animator.SetFloat(SPEEDMULTIPLIER, 1f);
+                    else animator.SetFloat(SPEEDMULTIPLIER, -1f);
+                } else
+                {
+                    eulerAngles = Vector3.zero;
+                    if (movement > 0) animator.SetFloat(SPEEDMULTIPLIER, 1f);
+                    else animator.SetFloat(SPEEDMULTIPLIER, -1f);
+                }
+            }
+            
+            newRotation.eulerAngles = eulerAngles;
             animator.transform.rotation = newRotation;
         }
     }
