@@ -56,4 +56,12 @@ public class PlayerRespawn : MonoBehaviour
             }
         }
     }
+    
+    public void SetRespawnPoint()
+    {
+        respawnPosition = transform.position;
+        respawnRotation = transform.rotation;
+        respawnCameraRotation = followCamera.VirtualCameraGameObject.transform.rotation;
+        respawnAxisMovement = playerMovement.GetAxisOfMovement();
+    }
 }

@@ -17,6 +17,7 @@ public class InteractTrigger : MonoBehaviour
         PlayerController controller;
         if (other.TryGetComponent<PlayerController>(out controller))
         {
+            controller.GetComponent<PlayerRespawn>().SetRespawnPoint();
             controller.InteractPressed += Interact;
             interactCanvas.SetActive(true);
         }

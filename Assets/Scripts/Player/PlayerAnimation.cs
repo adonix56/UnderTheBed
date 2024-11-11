@@ -46,12 +46,13 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (animator)
         {
-            Quaternion newRotation = new Quaternion();
-            Vector3 eulerAngles = new Vector3();
+            Quaternion newRotation = animator.transform.rotation;
+            Vector3 eulerAngles = newRotation.eulerAngles;
             bool moving = !Mathf.Approximately(movement, 0f);
+            animator.SetFloat(SPEEDMULTIPLIER, 1f);
             if (moving)
             {
-                eulerAngles = movement < 0 ? new Vector3(0f, 180f, 0f) : Vector3.zero;
+                eulerAngles = movement < 0 ? new Vector3(0f, 180f, 0f) : Vector3.zero; 
             }
             if (flashlight.FlashlightActive)
             {
