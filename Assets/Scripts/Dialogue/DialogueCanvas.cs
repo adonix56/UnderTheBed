@@ -10,10 +10,10 @@ public class DialogueCanvas : MonoBehaviour
 
     public void SetSpeakers(CharacterSO left, CharacterSO right)
     {
-        leftSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = left.Neutral;
-        leftSpeaker.transform.Find("Right Sprite").GetComponent<Image>().sprite = right.Neutral;
-        rightSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = right.Neutral;
-        rightSpeaker.transform.Find("Left Sprite").GetComponent<Image>().sprite = left.Neutral;
+        leftSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = left.GetCharacterSprite();
+        leftSpeaker.transform.Find("Right Sprite").GetComponent<Image>().sprite = right.GetCharacterSprite();
+        rightSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = right.GetCharacterSprite();
+        rightSpeaker.transform.Find("Left Sprite").GetComponent<Image>().sprite = left.GetCharacterSprite();
     }
 
     public void ActivateDialogue(bool activeLeftSpeaker)

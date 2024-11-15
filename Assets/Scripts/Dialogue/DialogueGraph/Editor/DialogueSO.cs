@@ -4,26 +4,28 @@ using UnityEditor.Callbacks;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System;
+using UnityEditor;
 
-namespace Dialogue
+namespace Dialogue.Editor
 {
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Scriptable Objects/Dialogue", order = 0)]
     public class DialogueSO : ScriptableObject
     {
+        public CharacterSO leftSpeaker;
+        public CharacterSO rightSpeaker;
         [SerializeField]
-        private List<DialogueNode> nodes = new List<DialogueNode>();
+        public List<DialogueNode> nodes = new List<DialogueNode>();
         [SerializeField]
         private Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
 
-#if UNITY_EDITOR
-        private void Awake()
+        private void OnEnable()
         {
             if (nodes.Count == 0)
             {
-                nodes.Add(CreateNewNode());
+                CreateNewNode();
             }
         }
-#endif
+
         public void OnValidate()
         {
             nodeLookup.Clear();
@@ -31,6 +33,8 @@ namespace Dialogue
             foreach (DialogueNode node in nodes)
             {
                 nodeLookup[node.nodeID] = node;
+                node.leftSpeaker = leftSpeaker;
+                node.rightSpeaker = rightSpeaker;
             }
         }
 
@@ -61,25 +65,37 @@ namespace Dialogue
             }
         }
 
-        public DialogueNode CreateNewNode(DialogueNode parent = null)
+        public void CreateNewNode(DialogueNode parent = null)
         {
-            DialogueNode newNode = new DialogueNode();
+            //DialogueNode newNode = new DialogueNode();
+            DialogueNode newNode = ScriptableObject.CreateInstance<DialogueNode>();
             newNode.nodeID = Guid.NewGuid().ToString();
             nodes.Add(newNode);
             nodeLookup[newNode.nodeID] = newNode;
             if (parent != null)
+            {
                 parent.children.Add(newNode.nodeID);
-            return newNode;
+                Rect newRect = parent.rectPosition;
+                newRect.x += newRect.width * 1.3f;
+                newNode.Initialize(this, newRect);
+            } else
+            {
+                newNode.Initialize(this);
+            }
+            AssetDatabase.AddObjectToAsset(newNode, this);
+            AssetDatabase.SaveAssets();
         }
 
         public void DeleteNode(DialogueNode nodeToDelete)
         {
             nodes.Remove(nodeToDelete);
+            DestroyImmediate(nodeToDelete, true);
             OnValidate();
             foreach (DialogueNode node in nodes)
             {
                 node.children.Remove(nodeToDelete.nodeID);
             }
+            AssetDatabase.SaveAssets();
         }
     }
 }
