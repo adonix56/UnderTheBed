@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Live2D.Cubism.Core;
+using UnityEngine.Android;
 
 public class Flashlight : MonoBehaviour
 {
@@ -35,10 +36,12 @@ public class Flashlight : MonoBehaviour
         Quaternion flashlightRotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(flashlightAim.y, flashlightAim.x) * Mathf.Rad2Deg);
         flashlightBase.rotation = Quaternion.RotateTowards(flashlightBase.rotation, flashlightRotation, speed * Time.deltaTime);
 
-        //float newValue = CubismModel.Parameters[9].Value + speed * Time.deltaTime;
+        //float newValue = 0 + speed * Time.deltaTime;
         //if (newValue > 180) newValue -= 180;
+        //Debug.Log($"9 : {CubismModel.Parameters[9].Value} and 10 : {CubismModel.Parameters[10].Value}");
+        // TODO: Calculate degree and set it to parameters[9]
         //CubismModel.Parameters[9].Value = newValue;
-        //CubismModel.Parameters[10].Value = 1f;
+        CubismModel.Parameters[10].Value = FlashlightActive ? 1f : 0f;
     }
 
     private void FlashlightOn(object sender, System.EventArgs e)
