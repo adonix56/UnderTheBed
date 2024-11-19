@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private bool isRotating;
     private bool isJumping;
+    private bool canMove = true;
     private int jumpNum;
     private float movement;
     [SerializeField] private Vector3 axisOfMovement;
@@ -51,34 +52,37 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = playerController.GetMoveInput();
-        isGrounded = Physics.CheckBox(transform.position, boxSize, transform.rotation, platformMask);
-        playerAnimation.SetWalking(!Mathf.Approximately(movement, 0f));
-        playerAnimation.SetFaceDirection(movement);
-        if (isJumping)
+        if (canMove)
         {
-            if (jumpDelay < 0f)
+            movement = playerController.GetMoveInput();
+            isGrounded = Physics.CheckBox(transform.position, boxSize, transform.rotation, platformMask);
+            playerAnimation.SetWalking(!Mathf.Approximately(movement, 0f));
+            playerAnimation.SetFaceDirection(movement);
+            if (isJumping)
             {
-                isJumping = false;
-                playerAnimation.SetJumping(false);
+                if (jumpDelay < 0f)
+                {
+                    isJumping = false;
+                    playerAnimation.SetJumping(false);
+                }
+                jumpDelay -= Time.deltaTime;
+            } else
+            {
+                if (isGrounded && lastGroundedTime <= 0f) // Grounded after delay
+                {
+                    //playerAnimation.SetGrounded(true);
+                    jumpNum = 0;
+                } else if (!isGrounded && jumpNum == 0) // Not grounded when jumping (fall off edge)
+                {
+                    //playerAnimation.SetGrounded(false);
+                    jumpNum = 1;
+                }
+                if (lastGroundedTime > 0f) // Decrease time when delay started
+                {
+                    lastGroundedTime -= Time.deltaTime;
+                }
+                playerAnimation.SetGrounded(isGrounded);
             }
-            jumpDelay -= Time.deltaTime;
-        } else
-        {
-            if (isGrounded && lastGroundedTime <= 0f) // Grounded after delay
-            {
-                //playerAnimation.SetGrounded(true);
-                jumpNum = 0;
-            } else if (!isGrounded && jumpNum == 0) // Not grounded when jumping (fall off edge)
-            {
-                //playerAnimation.SetGrounded(false);
-                jumpNum = 1;
-            }
-            if (lastGroundedTime > 0f) // Decrease time when delay started
-            {
-                lastGroundedTime -= Time.deltaTime;
-            }
-            playerAnimation.SetGrounded(isGrounded);
         }
     }
 
@@ -108,11 +112,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 positionToMove = axisOfMovement * movement * speed * Time.fixedDeltaTime;
-        CalculateRotation(positionToMove);
-        //rb.MovePosition(transform.position + positionToMove);
-        transform.position += positionToMove;
-        rb.AddForce(Physics.gravity * (gravityScale - 1) * rb.mass); 
+        if (canMove)
+        {
+            Vector3 positionToMove = axisOfMovement * movement * speed * Time.fixedDeltaTime;
+            CalculateRotation(positionToMove);
+            //rb.MovePosition(transform.position + positionToMove);
+            transform.position += positionToMove;
+            rb.AddForce(Physics.gravity * (gravityScale - 1) * rb.mass);
+        }
     }
 
     private void CalculateRotation(Vector3 positionToMove)
@@ -171,5 +178,10 @@ public class PlayerMovement : MonoBehaviour
     public void EndRotation()
     {
         isRotating = false;
+    }
+
+    public void SetMovementAllowed(bool movementAllowed)
+    {
+        canMove = movementAllowed;
     }
 }

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.Callbacks;
 using UnityEditor.Experimental.GraphView;
+#endif
 using UnityEngine;
 using System;
 using UnityEditor;
@@ -74,6 +76,7 @@ namespace Dialogue
         {
             //DialogueNode newNode = new DialogueNode();
             DialogueNode newNode = ScriptableObject.CreateInstance<DialogueNode>();
+#if UNITY_EDITOR
             newNode.nodeID = Guid.NewGuid().ToString();
             nodes.Add(newNode);
             nodeLookup[newNode.nodeID] = newNode;
@@ -94,11 +97,13 @@ namespace Dialogue
             }
             AssetDatabase.AddObjectToAsset(newNode, this);
             AssetDatabase.SaveAssets();
+#endif
             return newNode;
         }
 
         public void DeleteNode(DialogueNode nodeToDelete)
         {
+#if UNITY_EDITOR
             nodes.Remove(nodeToDelete);
             DestroyImmediate(nodeToDelete, true);
             OnValidate();
@@ -107,6 +112,7 @@ namespace Dialogue
                 node.children.Remove(nodeToDelete.nodeID);
             }
             AssetDatabase.SaveAssets();
+#endif
         }
     }
 }

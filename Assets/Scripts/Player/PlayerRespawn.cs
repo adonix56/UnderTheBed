@@ -10,10 +10,12 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField] private bool IsDead;
     [SerializeField] private float timer;
     [SerializeField] private GameObject playerSprite;
-    private ICinemachineCamera followCamera;
+    [SerializeField] private CinemachineVirtualCamera leftFollowCamera;
+    [SerializeField] private CinemachineVirtualCamera rightFollowCamera;
     private Vector3 respawnPosition;
     private Quaternion respawnRotation;
-    private Quaternion respawnCameraRotation;
+    private Quaternion respawnLCameraRotation;
+    private Quaternion respawnRCameraRotation;
     private Vector3 respawnAxisMovement;
     private PlayerMovement playerMovement;
 
@@ -23,15 +25,17 @@ public class PlayerRespawn : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         respawnPosition = transform.position;
         respawnRotation = transform.rotation;
-        respawnCameraRotation = followCamera.VirtualCameraGameObject.transform.rotation;
+        respawnLCameraRotation = leftFollowCamera.VirtualCameraGameObject.transform.rotation;
+        respawnRCameraRotation = rightFollowCamera.VirtualCameraGameObject.transform.rotation;
         respawnAxisMovement = playerMovement.GetAxisOfMovement();
     }
 
     public void SetDead(bool removeSprite = false)
     {
-        followCamera = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera;
+        playerMovement.SetMovementAllowed(false);
         if (removeSprite) playerSprite.SetActive(!removeSprite);
-        followCamera.Follow = null;
+        leftFollowCamera.Follow = null;
+        rightFollowCamera.Follow = null;
         timer = respawnTimer;
         IsDead = true;
     }
@@ -49,10 +53,13 @@ public class PlayerRespawn : MonoBehaviour
                 transform.position = respawnPosition;
                 transform.rotation = respawnRotation;
                 playerSprite.SetActive(true);
-                followCamera.VirtualCameraGameObject.transform.rotation = respawnCameraRotation;
+                leftFollowCamera.VirtualCameraGameObject.transform.rotation = respawnLCameraRotation;
+                rightFollowCamera.VirtualCameraGameObject.transform.rotation = respawnRCameraRotation;
                 IsDead = false;
-                followCamera.Follow = transform;
+                leftFollowCamera.Follow = transform;
+                rightFollowCamera.Follow = transform;
                 playerMovement.SetAxisMovement(respawnAxisMovement);
+                playerMovement.SetMovementAllowed(true);
             }
         }
     }
@@ -61,7 +68,8 @@ public class PlayerRespawn : MonoBehaviour
     {
         respawnPosition = transform.position;
         respawnRotation = transform.rotation;
-        respawnCameraRotation = followCamera.VirtualCameraGameObject.transform.rotation;
+        respawnLCameraRotation = leftFollowCamera.VirtualCameraGameObject.transform.rotation;
+        respawnRCameraRotation = rightFollowCamera.VirtualCameraGameObject.transform.rotation;
         respawnAxisMovement = playerMovement.GetAxisOfMovement();
     }
 }
