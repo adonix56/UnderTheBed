@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class PlayerAnimation : MonoBehaviour
     private const string ISJUMPING = "IsJumping";
     private const string SPEEDMULTIPLIER = "SpeedMultiplier";
     [SerializeField] private Animator animator;
+    [SerializeField] private CinemachineVirtualCamera leftCamera;
+    [SerializeField] private CinemachineVirtualCamera rightCamera;
 
     private Flashlight flashlight;
 
@@ -16,6 +19,8 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.keepAnimatorStateOnDisable = true;
         flashlight = GetComponent<Flashlight>();
+        leftCamera.Priority = 5;
+        rightCamera.Priority = 10;
     }
 
     public void SetWalking(bool isWalking)
@@ -52,7 +57,9 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetFloat(SPEEDMULTIPLIER, 1f);
             if (moving)
             {
-                eulerAngles = movement < 0 ? new Vector3(0f, 180f, 0f) : Vector3.zero; 
+                eulerAngles = movement < 0 ? new Vector3(0f, 180f, 0f) : Vector3.zero;
+                leftCamera.Priority = movement < 0 ? 10 : 5;
+                rightCamera.Priority = movement < 0 ? 5 : 10;
             }
             if (flashlight.FlashlightActive)
             {
