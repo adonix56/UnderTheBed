@@ -23,13 +23,13 @@ public class PlayerRespawn : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         respawnPosition = transform.position;
         respawnRotation = transform.rotation;
-        followCamera = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera;
         respawnCameraRotation = followCamera.VirtualCameraGameObject.transform.rotation;
         respawnAxisMovement = playerMovement.GetAxisOfMovement();
     }
 
     public void SetDead(bool removeSprite = false)
     {
+        followCamera = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera;
         if (removeSprite) playerSprite.SetActive(!removeSprite);
         followCamera.Follow = null;
         timer = respawnTimer;

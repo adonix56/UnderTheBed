@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e95199e7799e4468d8cdfe04c889cf, type: 3}
+  m_Name: Benny6
+  m_EditorClassIdentifier: 
+  leftSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  nodes:
+  - {fileID: 1710368517540447573}
+  - {fileID: 6861787560141784972}
+  - {fileID: 7126621977507900275}
+  - {fileID: 5219142665640530643}
+--- !u!114 &1710368517540447573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 51e7da7f-80b4-4ead-8e82-31962aefab9b
+  rectPosition:
+    serializedVersion: 2
+    x: 43
+    y: 159
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  leftExpression: 3
+  rightSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: Keep going, Jordan, you're almost there!
+  children:
+  - 22ff1edc-aad9-4e00-948c-54db151eb2ea
+--- !u!114 &5219142665640530643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 65a6a21b-38fe-48a6-9766-b22af58a3c31
+  rectPosition:
+    serializedVersion: 2
+    x: 823
+    y: 159
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  rightExpression: 1
+  isLeftSpeaker: 0
+  text: Okay, Benny, but it better not be carrots!
+  children: []
+--- !u!114 &6861787560141784972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 22ff1edc-aad9-4e00-948c-54db151eb2ea
+  rectPosition:
+    serializedVersion: 2
+    x: 303
+    y: 159
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  leftExpression: 3
+  rightSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  rightExpression: 4
+  isLeftSpeaker: 0
+  text: Almost where? What are we doing here, Benny?
+  children:
+  - 07faf9e0-5c22-44aa-b4aa-52e135e00a79
+--- !u!114 &7126621977507900275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 07faf9e0-5c22-44aa-b4aa-52e135e00a79
+  rectPosition:
+    serializedVersion: 2
+    x: 563
+    y: 159
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  rightExpression: 4
+  isLeftSpeaker: 1
+  text: I promise I will explain everything soon. Use what I taught you to make your
+    way to the end of this room. I have something to show you.
+  children:
+  - 65a6a21b-38fe-48a6-9766-b22af58a3c31

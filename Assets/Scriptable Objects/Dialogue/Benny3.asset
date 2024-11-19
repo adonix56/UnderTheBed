@@ -15,8 +15,8 @@ MonoBehaviour:
   nodeID: dbc9e0e6-ce46-4cb9-bb43-a1b70c460f44
   rectPosition:
     serializedVersion: 2
-    x: 666
-    y: 420
+    x: 321
+    y: 236
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -43,8 +43,8 @@ MonoBehaviour:
   nodeID: 9044f9cd-ed95-45f8-96a2-feea8416034e
   rectPosition:
     serializedVersion: 2
-    x: 926
-    y: 420
+    x: 581
+    y: 236
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -73,8 +73,8 @@ MonoBehaviour:
   nodeID: 3131c722-126c-4b49-b184-3d8595310146
   rectPosition:
     serializedVersion: 2
-    x: 1186
-    y: 420
+    x: 841
+    y: 236
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
