@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4285264779613424230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 5fc97eea-050f-4299-b84d-2ae9fa6a5bfb
+  rectPosition:
+    serializedVersion: 2
+    x: 1390
+    y: 165
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 4
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 3
+  isLeftSpeaker: 0
+  text: Magic, Jordy! You'll see. Just don't try this when you get back home.
+  children: []
+--- !u!114 &-1464764606208715448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 1548a83b-4341-41e6-bf1d-8fcc2eb561c2
+  rectPosition:
+    serializedVersion: 2
+    x: 870
+    y: 165
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 0
+  text: Don't worry, Jordy, I won't let anything bad happen to you. Try jumping across
+    the big, scary pit.  I'll bring you back to me if you fall.
+  children:
+  - 3e828126-be0a-4235-a13a-cc68a8bb34e0
+--- !u!114 &-1142024304064620332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: ac9394e7-a7ac-401f-9064-75918ab38917
+  rectPosition:
+    serializedVersion: 2
+    x: 610
+    y: 165
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: Woah! Why is the ground moving? Mom would definitely not like me playing
+    near that.
+  children:
+  - 1548a83b-4341-41e6-bf1d-8fcc2eb561c2
+--- !u!114 &-491233184813646423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 59500468-94a2-4c7d-a4a6-d20bad898226
+  rectPosition:
+    serializedVersion: 2
+    x: 350
+    y: 165
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 0
+  text: I told you, I can do all sorts of fun things, Jordy. This is a strange and
+    magical place. Just look at this big, scary pit next to me!
+  children:
+  - ac9394e7-a7ac-401f-9064-75918ab38917
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e95199e7799e4468d8cdfe04c889cf, type: 3}
+  m_Name: Benny2
+  m_EditorClassIdentifier: 
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  nodes:
+  - {fileID: 1914773814418367585}
+  - {fileID: -491233184813646423}
+  - {fileID: -1142024304064620332}
+  - {fileID: -1464764606208715448}
+  - {fileID: 1913628468665556582}
+  - {fileID: -4285264779613424230}
+--- !u!114 &1913628468665556582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 3e828126-be0a-4235-a13a-cc68a8bb34e0
+  rectPosition:
+    serializedVersion: 2
+    x: 1130
+    y: 165
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 4
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: You'll... bring me back? How?
+  children:
+  - 5fc97eea-050f-4299-b84d-2ae9fa6a5bfb
+--- !u!114 &1914773814418367585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 7defc2ad-6ae7-49de-8796-bd2a65124021
+  rectPosition:
+    serializedVersion: 2
+    x: 90
+    y: 165
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: How did you get up here so fast? I didn't see you pass me.
+  children:
+  - 59500468-94a2-4c7d-a4a6-d20bad898226

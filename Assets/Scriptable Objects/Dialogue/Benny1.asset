@@ -1,0 +1,492 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7270205829620399561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 00cb11f0-03f9-4462-a331-e0d8aa44b37c
+  rectPosition:
+    serializedVersion: 2
+    x: 102
+    y: 384
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 0
+  text: It will take you some time to get used to it here. The effectsof being shrunken
+    down are jarring because of the sudden compression of your moleclar bonds which
+    allows you to be smaller, but have the same mass. Your increased muscle efficiency
+    and reduced drag coefficient will let you jump higher as well.
+  children:
+  - c2d56a2c-f935-4b37-9174-c4d87e077bae
+--- !u!114 &-6913055596651667145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: bdb71083-0568-4625-aef6-b40bd8cdedf1
+  rectPosition:
+    serializedVersion: 2
+    x: 370
+    y: 125
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 2
+  isLeftSpeaker: 0
+  text: You can never lose me, Jordan! I've been right here for weeks. You should
+    really clean under your bed more often...
+  children:
+  - fcff1264-841a-49d7-84f7-b70901224961
+--- !u!114 &-6288298049210097735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 7df548f6-dd60-48b1-abe2-5e21e2dc7d40
+  rectPosition:
+    serializedVersion: 2
+    x: 881
+    y: 384
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 2
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: Again with the carrots...
+  children: []
+--- !u!114 &-1777928721274854063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 1709a580-1995-458b-a8ee-68521bcb8c21
+  rectPosition:
+    serializedVersion: 2
+    x: 887
+    y: 125
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 3
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 2
+  isLeftSpeaker: 1
+  text: Wait... you can TALK?!
+  children:
+  - 953e8140-411e-4fb7-ad88-35d974965dab
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e95199e7799e4468d8cdfe04c889cf, type: 3}
+  m_Name: Benny1
+  m_EditorClassIdentifier: 
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  nodes:
+  - {fileID: 8594285743042776801}
+  - {fileID: -6913055596651667145}
+  - {fileID: 4285402796174290217}
+  - {fileID: -1777928721274854063}
+  - {fileID: 8391341819399462054}
+  - {fileID: 8735956684053831199}
+  - {fileID: 7257258131560575845}
+  - {fileID: 5296684902944796751}
+  - {fileID: 4256040586416011020}
+  - {fileID: 3167425866172890500}
+  - {fileID: 2022714758434544443}
+  - {fileID: 7664238832378346698}
+  - {fileID: -7270205829620399561}
+  - {fileID: 8723778671946769219}
+  - {fileID: 8551053404642807612}
+  - {fileID: -6288298049210097735}
+--- !u!114 &2022714758434544443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: c666e3aa-61e9-41ce-ab24-2bc0b6674eec
+  rectPosition:
+    serializedVersion: 2
+    x: 1143
+    y: 248
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 2
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 1
+  isLeftSpeaker: 0
+  text: You should, but there's no time for that now, Jordy! I have so much to tell
+    you, but first I have to show you how to get around down here in the dark.
+  children:
+  - 9b604b1f-6f33-4f9c-9e1c-e05b242af93a
+--- !u!114 &3167425866172890500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 368a9247-439c-4ece-aae2-609c6272f48c
+  rectPosition:
+    serializedVersion: 2
+    x: 883
+    y: 251
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 2
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: A princess?! You're telling me there's a princess living under my bed? Maybe
+    I really should clean more...Also, my name is Jordan, not Jordy.
+  children:
+  - c666e3aa-61e9-41ce-ab24-2bc0b6674eec
+--- !u!114 &4256040586416011020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 59d065dd-94e7-4698-b2ff-f44f41450886
+  rectPosition:
+    serializedVersion: 2
+    x: 623
+    y: 251
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 2
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 0
+  text: There's a whole magical world under here, Jordy! There are other toys, and
+    a castle, and the princess--
+  children:
+  - 368a9247-439c-4ece-aae2-609c6272f48c
+--- !u!114 &4285402796174290217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: fcff1264-841a-49d7-84f7-b70901224961
+  rectPosition:
+    serializedVersion: 2
+    x: 627
+    y: 125
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 2
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 2
+  isLeftSpeaker: 1
+  text: You sound like mom...
+  children:
+  - 1709a580-1995-458b-a8ee-68521bcb8c21
+--- !u!114 &5296684902944796751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 2a6d9b2e-22ac-45ce-bfbe-8247e6b19385
+  rectPosition:
+    serializedVersion: 2
+    x: 363
+    y: 251
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 2
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 4
+  isLeftSpeaker: 1
+  text: They? Who else is under here?
+  children:
+  - 59d065dd-94e7-4698-b2ff-f44f41450886
+--- !u!114 &7257258131560575845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 3888b898-3f27-4e7a-8794-7a27df35a49f
+  rectPosition:
+    serializedVersion: 2
+    x: 103
+    y: 251
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 4
+  isLeftSpeaker: 0
+  text: I missed you too, Jordan. I wanted to come out, but they need my help down
+    here.
+  children:
+  - 2a6d9b2e-22ac-45ce-bfbe-8247e6b19385
+--- !u!114 &7664238832378346698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 9b604b1f-6f33-4f9c-9e1c-e05b242af93a
+  rectPosition:
+    serializedVersion: 2
+    x: 1404
+    y: 248
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 1
+  isLeftSpeaker: 1
+  text: It is a little hard to see... and my legs feel funny.
+  children:
+  - 00cb11f0-03f9-4462-a331-e0d8aa44b37c
+--- !u!114 &8391341819399462054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 953e8140-411e-4fb7-ad88-35d974965dab
+  rectPosition:
+    serializedVersion: 2
+    x: 1147
+    y: 125
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 3
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 3
+  isLeftSpeaker: 0
+  text: I sure can! Under here I can do all sorts of things. I can make a mean carrot
+    cake too.
+  children:
+  - 130707da-c76d-4b2d-a71d-b16319583748
+--- !u!114 &8551053404642807612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: f48d4497-8509-4d1c-a141-a2142d3c22d5
+  rectPosition:
+    serializedVersion: 2
+    x: 621
+    y: 384
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 1
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 0
+  text: 'Nevermind that. For now, just remember: Press [A] to move left, Press [D]
+    to move right. You can also press [SPACEBAR] to jump. Let''s try jumping up this
+    hill... last one to the top is a rotten carrot!'
+  children:
+  - 7df548f6-dd60-48b1-abe2-5e21e2dc7d40
+--- !u!114 &8594285743042776801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 5614d2e4-2122-4539-8dec-88715068105b
+  rectPosition:
+    serializedVersion: 2
+    x: 106
+    y: 125
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 3
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: BENNY?! Where have you been? I thought I lost you!
+  children:
+  - bdb71083-0568-4625-aef6-b40bd8cdedf1
+--- !u!114 &8723778671946769219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: c2d56a2c-f935-4b37-9174-c4d87e077bae
+  rectPosition:
+    serializedVersion: 2
+    x: 361
+    y: 384
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 1
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: Umm... what?
+  children:
+  - f48d4497-8509-4d1c-a141-a2142d3c22d5
+--- !u!114 &8735956684053831199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 130707da-c76d-4b2d-a71d-b16319583748
+  rectPosition:
+    serializedVersion: 2
+    x: 1407
+    y: 125
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 3
+  isLeftSpeaker: 1
+  text: (Carrots...yuck...) I'm just happy to see you again! Why didn't you come
+    out and find me?
+  children:
+  - 3888b898-3f27-4e7a-8794-7a27df35a49f

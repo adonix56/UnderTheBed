@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3510718472263019077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 64b4afd9-ee6c-48fb-8072-b89c50472447
+  rectPosition:
+    serializedVersion: 2
+    x: 726
+    y: 367
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 1
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 3
+  isLeftSpeaker: 0
+  text: GO JORDY, GO!
+  children: []
+--- !u!114 &-2624568557663569019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Benny
+  m_EditorClassIdentifier: 
+  nodeID: 0034fb86-7576-4d8e-860a-32380008c931
+  rectPosition:
+    serializedVersion: 2
+    x: 206
+    y: 367
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 0
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 0
+  text: Remember how I said you have to be patient? Well, sometimes you have to hurry
+    up too! Jump across these unstable platforms as quick as you can! But be patient..
+    but also hurry... seriously, you'll fall.
+  children:
+  - 8020c9cb-dfad-4392-8978-4cbe12072e96
+--- !u!114 &-651062048350294012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeedec433884ee4abe52b65a20b2ff2, type: 3}
+  m_Name: Jordan
+  m_EditorClassIdentifier: 
+  nodeID: 8020c9cb-dfad-4392-8978-4cbe12072e96
+  rectPosition:
+    serializedVersion: 2
+    x: 466
+    y: 367
+    width: 200
+    height: 100
+  parentDialogue: {fileID: 11400000}
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  leftExpression: 2
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  rightExpression: 0
+  isLeftSpeaker: 1
+  text: How can I hurry and be patient at the same-
+  children:
+  - 64b4afd9-ee6c-48fb-8072-b89c50472447
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e95199e7799e4468d8cdfe04c889cf, type: 3}
+  m_Name: Benny4
+  m_EditorClassIdentifier: 
+  leftSpeaker: {fileID: 11400000, guid: ffce870c1b8513444893cd189bdd511a, type: 2}
+  rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
+  nodes:
+  - {fileID: -2624568557663569019}
+  - {fileID: -651062048350294012}
+  - {fileID: -3510718472263019077}
