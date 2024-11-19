@@ -22,10 +22,19 @@ namespace Dialogue
 
         private void OnEnable()
         {
+#if UNITY_EDITOR
             if (nodes.Count == 0)
             {
                 CreateNewNode();
             }
+#endif
+        }
+
+        private void Awake()
+        {
+#if UNITY_STANDALONE || UNITY_WEBGL
+            OnValidate();
+#endif
         }
 
         public void OnValidate()

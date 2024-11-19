@@ -51,7 +51,7 @@ public class DialogueCanvas : MonoBehaviour
         if (alreadyActive)
         {
             currentDialogueNode = currentDialogueNode.children.Count > 0 ? currentDialogue.GetNode(currentDialogueNode.children[0]) : null;
-
+            
         }
         SetNodeDetails();
     }
