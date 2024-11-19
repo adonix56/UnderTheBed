@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Dialogue.Editor
+namespace Dialogue
 {
 
     //[System.Serializable]

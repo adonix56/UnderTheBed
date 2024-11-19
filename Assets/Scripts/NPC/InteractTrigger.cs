@@ -1,3 +1,4 @@
+using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,11 @@ using UnityEngine;
 public class InteractTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject interactCanvas;
-    [SerializeField] private CharacterSO leftCharacter;
-    [SerializeField] private CharacterSO rightCharacter;
+    [SerializeField] private DialogueSO dialogue;
 
     //TODO: Testing purposes, remove later
     [SerializeField] private DialogueCanvas dialogueCanvas;
-    bool alternateLeftSpeaker = true;
+    private bool dialogueActive;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,8 +18,15 @@ public class InteractTrigger : MonoBehaviour
         if (other.TryGetComponent<PlayerController>(out controller))
         {
             controller.GetComponent<PlayerRespawn>().SetRespawnPoint();
-            controller.InteractPressed += Interact;
-            interactCanvas.SetActive(true);
+            if (dialogue && dialogueCanvas)
+            {
+                dialogueCanvas.SetDialogue(dialogue);
+                if (dialogueCanvas.HasDialogue())
+                {
+                    controller.InteractPressed += Interact;
+                    interactCanvas.SetActive(true);
+                }
+            }
         }
     }
 
@@ -35,6 +42,7 @@ public class InteractTrigger : MonoBehaviour
             if (dialogueCanvas)
             {
                 dialogueCanvas.DeactivateDialogue();
+                dialogueActive = false;
             }
         }
     }
@@ -42,11 +50,15 @@ public class InteractTrigger : MonoBehaviour
     private void Interact(object sender, System.EventArgs e) 
     {
         // TODO: Testing purposes, remove later
-        if (dialogueCanvas)
+        if (dialogueCanvas && dialogueCanvas.HasDialogue())
         {
-            dialogueCanvas.ActivateDialogue(alternateLeftSpeaker);
-            dialogueCanvas.SetSpeakers(leftCharacter, rightCharacter);
-            alternateLeftSpeaker = !alternateLeftSpeaker;
+            dialogueCanvas.ActivateDialogue(dialogueActive);
+            dialogueActive = true;
+            if (!dialogueCanvas.HasDialogue())
+            {
+                dialogueActive = false;
+                interactCanvas.SetActive(false);
+            }
         }
     }
 }

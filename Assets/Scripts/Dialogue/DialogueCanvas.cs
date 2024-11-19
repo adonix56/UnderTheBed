@@ -1,3 +1,4 @@
+using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,26 +6,64 @@ using UnityEngine.UI;
 
 public class DialogueCanvas : MonoBehaviour
 {
-    [SerializeField] private GameObject leftSpeaker;
-    [SerializeField] private GameObject rightSpeaker;
+    [SerializeField] private DialogueSpeaker leftSpeaker;
+    [SerializeField] private DialogueSpeaker rightSpeaker;
 
-    public void SetSpeakers(CharacterSO left, CharacterSO right)
+    private DialogueSO currentDialogue;
+    private DialogueNode currentDialogueNode;
+
+    public void SetDialogue(DialogueSO dialogue)
     {
-        leftSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = left.GetCharacterSprite();
-        leftSpeaker.transform.Find("Right Sprite").GetComponent<Image>().sprite = right.GetCharacterSprite();
-        rightSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = right.GetCharacterSprite();
-        rightSpeaker.transform.Find("Left Sprite").GetComponent<Image>().sprite = left.GetCharacterSprite();
+        if (dialogue && currentDialogue != dialogue)
+        {
+            currentDialogue = dialogue;
+            currentDialogueNode = dialogue.nodes[0];
+        }
     }
 
-    public void ActivateDialogue(bool activeLeftSpeaker)
+    public void SetNodeDetails()
     {
-        leftSpeaker.SetActive(activeLeftSpeaker);
-        rightSpeaker.SetActive(!activeLeftSpeaker);
+        if (currentDialogueNode)
+        {
+            if (currentDialogueNode.isLeftSpeaker)
+            {
+                leftSpeaker.SetNewNode(currentDialogueNode);
+                leftSpeaker.gameObject.SetActive(true);
+                rightSpeaker.gameObject.SetActive(false);
+                //leftSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = currentDialogueNode.leftSpeaker.GetCharacterSprite(currentDialogueNode.leftExpression);
+                //leftSpeaker.transform.Find("Right Sprite").GetComponent<Image>().sprite = currentDialogueNode.rightSpeaker.GetCharacterSprite(currentDialogueNode.rightExpression);
+            } else
+            {
+                rightSpeaker.SetNewNode(currentDialogueNode);
+                leftSpeaker.gameObject.SetActive(false);
+                rightSpeaker.gameObject.SetActive(true);
+                //rightSpeaker.transform.Find("Sprite").GetComponent<Image>().sprite = currentDialogueNode.rightSpeaker.GetCharacterSprite(currentDialogueNode.rightExpression);
+                //rightSpeaker.transform.Find("Left Sprite").GetComponent<Image>().sprite = currentDialogueNode.leftSpeaker.GetCharacterSprite(currentDialogueNode.leftExpression);
+            }
+        } else
+        {
+            DeactivateDialogue();
+        }
+    }
+
+    public void ActivateDialogue(bool alreadyActive)
+    {
+        if (alreadyActive)
+        {
+            currentDialogueNode = currentDialogueNode.children.Count > 0 ? currentDialogue.GetNode(currentDialogueNode.children[0]) : null;
+
+        }
+        SetNodeDetails();
     }
 
     public void DeactivateDialogue()
     {
-        leftSpeaker.SetActive(false);
-        rightSpeaker.SetActive(false);
+        leftSpeaker.gameObject.SetActive(false);
+        rightSpeaker.gameObject.SetActive(false);
+    }
+
+    public bool HasDialogue()
+    {
+        return currentDialogue && currentDialogueNode;
     }
 }

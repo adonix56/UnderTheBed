@@ -6,7 +6,7 @@ using UnityEngine;
 using System;
 using UnityEditor;
 
-namespace Dialogue.Editor
+namespace Dialogue
 {
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Scriptable Objects/Dialogue", order = 0)]
     public class DialogueSO : ScriptableObject
@@ -54,6 +54,11 @@ namespace Dialogue.Editor
             return null;
         }
 
+        public DialogueNode GetNode(string nodeID)
+        {
+            return nodeLookup[nodeID];
+        }
+
         public IEnumerable<DialogueNode> GetChildren(DialogueNode node)
         {
             foreach (string child in node.children)
@@ -65,7 +70,7 @@ namespace Dialogue.Editor
             }
         }
 
-        public void CreateNewNode(DialogueNode parent = null)
+        public DialogueNode CreateNewNode(DialogueNode parent = null)
         {
             //DialogueNode newNode = new DialogueNode();
             DialogueNode newNode = ScriptableObject.CreateInstance<DialogueNode>();
@@ -78,12 +83,18 @@ namespace Dialogue.Editor
                 Rect newRect = parent.rectPosition;
                 newRect.x += newRect.width * 1.3f;
                 newNode.Initialize(this, newRect);
+                newNode.leftSpeaker = parent.leftSpeaker;
+                newNode.rightSpeaker = parent.rightSpeaker;
+                newNode.leftExpression = parent.leftExpression;
+                newNode.rightExpression = parent.rightExpression;
+                newNode.isLeftSpeaker = !parent.isLeftSpeaker;
             } else
             {
                 newNode.Initialize(this);
             }
             AssetDatabase.AddObjectToAsset(newNode, this);
             AssetDatabase.SaveAssets();
+            return newNode;
         }
 
         public void DeleteNode(DialogueNode nodeToDelete)

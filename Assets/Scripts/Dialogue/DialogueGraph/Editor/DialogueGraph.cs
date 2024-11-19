@@ -113,7 +113,9 @@ namespace Dialogue.Editor
             if (creatingNode != null)
             {
                 Undo.RecordObject(selectedDialogue, "Added New Dialogue Node");
-                selectedDialogue.CreateNewNode(creatingNode);
+                DialogueNode newNode = selectedDialogue.CreateNewNode(creatingNode);
+                Selection.activeObject = newNode;
+                selectedNode = newNode;
                 creatingNode = null;
             }
             if (deletingNode != null)
@@ -218,10 +220,18 @@ namespace Dialogue.Editor
             GenericMenu contextMenu = new GenericMenu();
             if (selectedNode)
             {
-                contextMenu.AddItem(new GUIContent("Create Child Node"), false, () => { selectedDialogue.CreateNewNode(selectedNode); });
+                contextMenu.AddItem(new GUIContent("Create Child Node"), false, () => { 
+                    DialogueNode newNode = selectedDialogue.CreateNewNode(selectedNode);
+                    Selection.activeObject = newNode;
+                    selectedNode = newNode;
+                });
             } else
             {
-                contextMenu.AddItem(new GUIContent("Create New Node"), false, () => { selectedDialogue.CreateNewNode(); });
+                contextMenu.AddItem(new GUIContent("Create New Node"), false, () => {
+                    DialogueNode newNode = selectedDialogue.CreateNewNode();
+                    Selection.activeObject = newNode;
+                    selectedNode = newNode;
+                });
             }
             if (withDelete) contextMenu.AddItem(new GUIContent("Delete Node"), false, () => { deletingNode = selectedNode; });
 
