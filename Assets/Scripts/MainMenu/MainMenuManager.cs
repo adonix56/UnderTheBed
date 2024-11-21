@@ -24,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
         menuControls = new MenuControls();
 
         menuControls.Menu.Select.performed += SelectPerformed;
+        loadingCanvas.gameObject.SetActive(true);
     }
 
     private void Start()

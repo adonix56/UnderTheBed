@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
         playerControls.Player.ExitGame.performed += ExitGamePerformed;
     }
 
+    private void Start()
+    {
+        loadingCanvas.gameObject.SetActive(true);
+    }
+
     private void OnEnable()
     {
         playerControls.Enable();

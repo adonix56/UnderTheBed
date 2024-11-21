@@ -15,8 +15,8 @@ MonoBehaviour:
   nodeID: 00cb11f0-03f9-4462-a331-e0d8aa44b37c
   rectPosition:
     serializedVersion: 2
-    x: 574
-    y: 655
+    x: 56
+    y: 479
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -25,7 +25,7 @@ MonoBehaviour:
   rightSpeaker: {fileID: 11400000, guid: df442bde60964f547b8411a0f820d8dc, type: 2}
   rightExpression: 0
   isLeftSpeaker: 0
-  text: It will take you some time to get used to it here. The effectsof being shrunken
+  text: It will take you some time to get used to it here. The effects of being shrunken
     down are jarring because of the sudden compression of your moleclar bonds which
     allows you to be smaller, but have the same mass. Your increased muscle efficiency
     and reduced drag coefficient will let you jump higher as well.
@@ -46,8 +46,8 @@ MonoBehaviour:
   nodeID: bdb71083-0568-4625-aef6-b40bd8cdedf1
   rectPosition:
     serializedVersion: 2
-    x: 842
-    y: 396
+    x: 324
+    y: 220
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -75,8 +75,8 @@ MonoBehaviour:
   nodeID: 7df548f6-dd60-48b1-abe2-5e21e2dc7d40
   rectPosition:
     serializedVersion: 2
-    x: 1353
-    y: 655
+    x: 835
+    y: 479
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -102,8 +102,8 @@ MonoBehaviour:
   nodeID: 1709a580-1995-458b-a8ee-68521bcb8c21
   rectPosition:
     serializedVersion: 2
-    x: 1359
-    y: 396
+    x: 841
+    y: 220
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -161,8 +161,8 @@ MonoBehaviour:
   nodeID: c666e3aa-61e9-41ce-ab24-2bc0b6674eec
   rectPosition:
     serializedVersion: 2
-    x: 1615
-    y: 519
+    x: 1097
+    y: 343
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -190,8 +190,8 @@ MonoBehaviour:
   nodeID: 368a9247-439c-4ece-aae2-609c6272f48c
   rectPosition:
     serializedVersion: 2
-    x: 1355
-    y: 522
+    x: 837
+    y: 346
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -219,8 +219,8 @@ MonoBehaviour:
   nodeID: 59d065dd-94e7-4698-b2ff-f44f41450886
   rectPosition:
     serializedVersion: 2
-    x: 1095
-    y: 522
+    x: 577
+    y: 346
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -248,8 +248,8 @@ MonoBehaviour:
   nodeID: fcff1264-841a-49d7-84f7-b70901224961
   rectPosition:
     serializedVersion: 2
-    x: 1099
-    y: 396
+    x: 581
+    y: 220
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -276,8 +276,8 @@ MonoBehaviour:
   nodeID: 2a6d9b2e-22ac-45ce-bfbe-8247e6b19385
   rectPosition:
     serializedVersion: 2
-    x: 835
-    y: 522
+    x: 317
+    y: 346
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -304,8 +304,8 @@ MonoBehaviour:
   nodeID: 3888b898-3f27-4e7a-8794-7a27df35a49f
   rectPosition:
     serializedVersion: 2
-    x: 575
-    y: 522
+    x: 57
+    y: 346
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -333,8 +333,8 @@ MonoBehaviour:
   nodeID: 9b604b1f-6f33-4f9c-9e1c-e05b242af93a
   rectPosition:
     serializedVersion: 2
-    x: 1876
-    y: 519
+    x: 1358
+    y: 343
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -361,8 +361,8 @@ MonoBehaviour:
   nodeID: 953e8140-411e-4fb7-ad88-35d974965dab
   rectPosition:
     serializedVersion: 2
-    x: 1619
-    y: 396
+    x: 1101
+    y: 220
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -390,8 +390,8 @@ MonoBehaviour:
   nodeID: f48d4497-8509-4d1c-a141-a2142d3c22d5
   rectPosition:
     serializedVersion: 2
-    x: 1093
-    y: 655
+    x: 575
+    y: 479
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -420,8 +420,8 @@ MonoBehaviour:
   nodeID: 5614d2e4-2122-4539-8dec-88715068105b
   rectPosition:
     serializedVersion: 2
-    x: 578
-    y: 396
+    x: 60
+    y: 220
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -448,8 +448,8 @@ MonoBehaviour:
   nodeID: c2d56a2c-f935-4b37-9174-c4d87e077bae
   rectPosition:
     serializedVersion: 2
-    x: 833
-    y: 655
+    x: 315
+    y: 479
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
@@ -476,8 +476,8 @@ MonoBehaviour:
   nodeID: 130707da-c76d-4b2d-a71d-b16319583748
   rectPosition:
     serializedVersion: 2
-    x: 1879
-    y: 396
+    x: 1361
+    y: 220
     width: 200
     height: 100
   parentDialogue: {fileID: 11400000}
