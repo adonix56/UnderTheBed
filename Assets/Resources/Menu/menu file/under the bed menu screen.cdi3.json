@@ -1,0 +1,231 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "light x"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "light y"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "about shake"
+		},
+		{
+			"Id": "Param4",
+			"GroupId": "",
+			"Name": "about shake 2"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "",
+			"Name": "op shake"
+		},
+		{
+			"Id": "Param6",
+			"GroupId": "",
+			"Name": "op shake 2"
+		},
+		{
+			"Id": "Param7",
+			"GroupId": "",
+			"Name": "play shake"
+		},
+		{
+			"Id": "Param8",
+			"GroupId": "",
+			"Name": "play shake 2"
+		},
+		{
+			"Id": "Param9",
+			"GroupId": "",
+			"Name": "bunny ani"
+		},
+		{
+			"Id": "Param10",
+			"GroupId": "",
+			"Name": "bunny ani"
+		},
+		{
+			"Id": "Param11",
+			"GroupId": "",
+			"Name": "bear yawn"
+		},
+		{
+			"Id": "Param12",
+			"GroupId": "",
+			"Name": "puppet kick"
+		},
+		{
+			"Id": "Param13",
+			"GroupId": "",
+			"Name": "arm LR"
+		},
+		{
+			"Id": "Param14",
+			"GroupId": "",
+			"Name": "arm UD"
+		},
+		{
+			"Id": "Param15",
+			"GroupId": "",
+			"Name": "tree"
+		},
+		{
+			"Id": "Param16",
+			"GroupId": "",
+			"Name": "doll arm"
+		},
+		{
+			"Id": "Param_Angle_Rotation",
+			"GroupId": "ParamGroup",
+			"Name": "[0]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation2",
+			"GroupId": "ParamGroup",
+			"Name": "[1]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation3",
+			"GroupId": "ParamGroup",
+			"Name": "[2]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation4",
+			"GroupId": "ParamGroup",
+			"Name": "[3]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation5",
+			"GroupId": "ParamGroup",
+			"Name": "[4]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation6",
+			"GroupId": "ParamGroup",
+			"Name": "[5]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation7",
+			"GroupId": "ParamGroup",
+			"Name": "[6]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation8",
+			"GroupId": "ParamGroup",
+			"Name": "[7]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation9",
+			"GroupId": "ParamGroup",
+			"Name": "[8]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation10",
+			"GroupId": "ParamGroup",
+			"Name": "[9]foreground Rotation"
+		},
+		{
+			"Id": "Param_Angle_Rotation11",
+			"GroupId": "ParamGroup",
+			"Name": "[10]foreground Rotation"
+		},
+		{
+			"Id": "Param17",
+			"GroupId": "",
+			"Name": "truck light"
+		},
+		{
+			"Id": "Param18",
+			"GroupId": "",
+			"Name": "stars"
+		},
+		{
+			"Id": "Param19",
+			"GroupId": "",
+			"Name": "stars"
+		},
+		{
+			"Id": "Param20",
+			"GroupId": "",
+			"Name": "stars"
+		},
+		{
+			"Id": "Param21",
+			"GroupId": "",
+			"Name": "stars"
+		},
+		{
+			"Id": "Param22",
+			"GroupId": "",
+			"Name": "stars"
+		},
+		{
+			"Id": "Param23",
+			"GroupId": "",
+			"Name": "stars"
+		},
+		{
+			"Id": "Param24",
+			"GroupId": "",
+			"Name": "head tilt"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "foreground Rotation"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "foreground",
+			"Name": "foreground"
+		},
+		{
+			"Id": "stars",
+			"Name": "stars"
+		},
+		{
+			"Id": "background",
+			"Name": "background"
+		},
+		{
+			"Id": "ArtMesh19_Skinning3",
+			"Name": "Layer 30(Skinning)"
+		},
+		{
+			"Id": "ArtMesh19_Skinning2",
+			"Name": "Layer 30(Skinning)"
+		},
+		{
+			"Id": "ArtMesh19_Skinning",
+			"Name": "Layer 30(Skinning)"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"Param3",
+			"Param4"
+		],
+		[
+			"Param5",
+			"Param6"
+		],
+		[
+			"Param7",
+			"Param8"
+		],
+		[
+			"Param9",
+			"Param10"
+		]
+	]
+}

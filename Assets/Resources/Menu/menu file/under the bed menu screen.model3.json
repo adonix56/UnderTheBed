@@ -1,0 +1,27 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "under the bed menu screen.moc3",
+		"Textures": [
+			"under the bed menu screen.4096/texture_00.png",
+			"under the bed menu screen.4096/texture_01.png",
+			"under the bed menu screen.4096/texture_02.png",
+			"under the bed menu screen.4096/texture_03.png",
+			"under the bed menu screen.4096/texture_04.png",
+			"under the bed menu screen.4096/texture_05.png"
+		],
+		"DisplayInfo": "under the bed menu screen.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

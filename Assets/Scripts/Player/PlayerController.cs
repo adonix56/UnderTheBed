@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public event EventHandler JumpPressed;
     public event EventHandler InteractPressed;
     public event EventHandler ShowControlsPressed;
+
+    [SerializeField] private LoadingCanvas loadingCanvas;
+
     private PlayerControls playerControls;
 
     private void Awake()
@@ -61,8 +64,12 @@ public class PlayerController : MonoBehaviour
         ShowControlsPressed?.Invoke(this, EventArgs.Empty);
     }
 
-    private void ExitGamePerformed(InputAction.CallbackContext obj) { 
-        Application.Quit();
+    private void ExitGamePerformed(InputAction.CallbackContext obj) {
+        Loader.SetupLoadScene(Loader.SceneName.MainMenu);
+        if (loadingCanvas)
+        {
+            loadingCanvas.SetupLoadScene(Loader.SceneName.MainMenu);
+        }
     }
 
     public float GetMoveInput()
