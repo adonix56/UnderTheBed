@@ -8,9 +8,28 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private Transform options;
     [SerializeField] private Transform about;
 
-    public int GetClosestButton(Vector2 mousePosition)
+    public enum MainMenuButton { 
+        None = -1, Play = 0, Options = 1, About = 2
+    }
+
+    public MainMenuButton GetClosestButton(Vector2 mousePosition)
     {
-        Debug.Log($"{Camera.main.ScreenToWorldPoint(mousePosition)} compare to {play.position} and {options.position}");
-        return 0;
+        Vector3 screenPos = Camera.main.ScreenToWorldPoint(mousePosition);
+        float mousey = screenPos.y;
+        float playy = play.position.y;
+        float optionsy = options.position.y;
+        float abouty = about.position.y;
+        MainMenuButton ret = MainMenuButton.Play;
+        float distance = Mathf.Abs(mousey - playy);
+        if (Mathf.Abs(mousey - optionsy) < distance)
+        {
+            ret = MainMenuButton.Options;
+            distance = Mathf.Abs(mousey - optionsy);
+        }
+        if (Mathf.Abs(mousey - abouty) < distance)
+        {
+            ret = MainMenuButton.About;
+        }
+        return ret;
     }
 }

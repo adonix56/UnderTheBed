@@ -12,6 +12,26 @@
 			"Name": "light y"
 		},
 		{
+			"Id": "Param25",
+			"GroupId": "",
+			"Name": "opacity"
+		},
+		{
+			"Id": "Param26",
+			"GroupId": "",
+			"Name": "words opacity"
+		},
+		{
+			"Id": "Param27",
+			"GroupId": "",
+			"Name": "words xy"
+		},
+		{
+			"Id": "Param28",
+			"GroupId": "",
+			"Name": "words xy"
+		},
+		{
 			"Id": "Param3",
 			"GroupId": "",
 			"Name": "about shake"

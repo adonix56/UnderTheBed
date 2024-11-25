@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403ae2dd693bb1d4b924f6b8d206b053, type: 3}
-  m_Name: menu.fadeMotionList
+  m_Name: Menu.fadeMotionList
   m_EditorClassIdentifier: 
-  MotionInstanceIds: 4ef0ffff16f0ffffeeefffffc6efffff9eefffff76efffff4eefffff26efffffdee3ffffb6e3ffff8ee3ffff
+  MotionInstanceIds: 160ffefffe0efeffea0efeffd60efeffc20efeffae0efeff5003feff3c03feff2803feff1403feff0003feff
   CubismFadeMotionObjects:
-  - {fileID: 11400000, guid: a8e495e89c6d419449d21ac5ff6397c2, type: 2}
-  - {fileID: 11400000, guid: d8ecbd3faf5be194babcebd48fb51839, type: 2}
-  - {fileID: 11400000, guid: 5d12858c96aae434f8a55d1f15260e83, type: 2}
-  - {fileID: 11400000, guid: c86ce09bdfc96d04d89addcd453e37aa, type: 2}
-  - {fileID: 11400000, guid: 2378e10435e81dd408730879f36ba2f5, type: 2}
-  - {fileID: 11400000, guid: 219343d72b6b81e4bb58182db0da56ca, type: 2}
-  - {fileID: 11400000, guid: 2d970fad85e84fc48804fc8fbc77b329, type: 2}
-  - {fileID: 11400000, guid: 37fd259d302c2964d9ce0f198b3f629f, type: 2}
-  - {fileID: 11400000, guid: c87cd3ed4e74f394b87b364eba70ee88, type: 2}
-  - {fileID: 11400000, guid: 8bf133458e000bd49b82722eed4901c3, type: 2}
-  - {fileID: 11400000, guid: d76f45ea619c2b743aa9ccfc3cf8cffa, type: 2}
+  - {fileID: 11400000, guid: 9548facbe27878448af06f0bd54dd2f2, type: 2}
+  - {fileID: 11400000, guid: f18b54658864a1c4e9c7d770b0b67620, type: 2}
+  - {fileID: 11400000, guid: 7ac455febabc47742b009695a2cda7e6, type: 2}
+  - {fileID: 11400000, guid: 37f9122a10e2f854d9c8b165c9d7dd8c, type: 2}
+  - {fileID: 11400000, guid: c25784e5cfc1cbb478640071457e79e4, type: 2}
+  - {fileID: 11400000, guid: 5a6a4dd3683b36740b9079689b1edf77, type: 2}
+  - {fileID: 11400000, guid: 7661da8e44d86914e82a4dea091ff366, type: 2}
+  - {fileID: 11400000, guid: db7cfa4b53ca76544a92809d10d4baaa, type: 2}
+  - {fileID: 11400000, guid: 973caa37e029c7d4ca124356897beabb, type: 2}
+  - {fileID: 11400000, guid: 075251f2c3dec4f439bb60c32971740b, type: 2}
+  - {fileID: 11400000, guid: 1fca5348c9d6b4e438e16093194a0677, type: 2}

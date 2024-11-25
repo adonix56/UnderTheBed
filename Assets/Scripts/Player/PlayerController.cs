@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public event EventHandler ShowControlsPressed;
 
     [SerializeField] private LoadingCanvas loadingCanvas;
+    [SerializeField] private Options options;
 
     private PlayerControls playerControls;
 
@@ -46,40 +47,46 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightStart(InputAction.CallbackContext obj)
     {
-        FlashlightStarted?.Invoke(this, EventArgs.Empty);
+        if (GameManager.CurrentGameState != GameManager.GameState.Paused)
+            FlashlightStarted?.Invoke(this, EventArgs.Empty);
     }
 
     private void FlashlightEnd(InputAction.CallbackContext obj)
     {
-        FlashlightEnded?.Invoke(this, EventArgs.Empty);
+        if (GameManager.CurrentGameState != GameManager.GameState.Paused)
+            FlashlightEnded?.Invoke(this, EventArgs.Empty);
     }
 
     private void JumpPerformed(InputAction.CallbackContext obj)
     {
-        JumpPressed?.Invoke(this, EventArgs.Empty);
+        if (GameManager.CurrentGameState != GameManager.GameState.Paused)
+            JumpPressed?.Invoke(this, EventArgs.Empty);
     }
 
     private void InteractPerformed(InputAction.CallbackContext obj)
     {
-        InteractPressed?.Invoke(this, EventArgs.Empty);
+        if (GameManager.CurrentGameState != GameManager.GameState.Paused)
+            InteractPressed?.Invoke(this, EventArgs.Empty);
     }
 
     private void ShowControlsPerformed(InputAction.CallbackContext obj)
     {
-        ShowControlsPressed?.Invoke(this, EventArgs.Empty);
+        if (GameManager.CurrentGameState != GameManager.GameState.Paused)
+            ShowControlsPressed?.Invoke(this, EventArgs.Empty);
     }
 
     private void ExitGamePerformed(InputAction.CallbackContext obj) {
-        Loader.SetupLoadScene(Loader.SceneName.MainMenu);
+        options.ToggleOptions(true);
+        /*Loader.SetupLoadScene(Loader.SceneName.MainMenu);
         if (loadingCanvas)
         {
             loadingCanvas.SetupLoadScene(Loader.SceneName.MainMenu);
-        }
+        }*/
     }
 
     public float GetMoveInput()
     {
-        return playerControls.Player.Move.ReadValue<float>();
+        return GameManager.CurrentGameState == GameManager.GameState.Paused ? 0.0f : playerControls.Player.Move.ReadValue<float>();
     }
 
     public Vector2 GetFlashlightAim()

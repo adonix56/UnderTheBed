@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Live2D.Cubism.Core;
-using Unity.PlasticSCM.Editor.WebApi;
+//using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
@@ -14,10 +14,12 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject Flashlight;
     [SerializeField] private MainMenuButtons buttons;
     [SerializeField] private LoadingCanvas loadingCanvas;
+    [SerializeField] private Options options;
 
     private Animator menuAnimator;
     private MenuControls menuControls;
     private bool inButtons;
+    private MainMenuButtons.MainMenuButton selection;
 
     private void Awake()
     {
@@ -44,22 +46,43 @@ public class MainMenuManager : MonoBehaviour
     }
 
     private void SelectPerformed(InputAction.CallbackContext obj) {
-        if (inButtons && loadingCanvas)
+        if (inButtons && loadingCanvas && !options.OptionsActive)
         {
-            loadingCanvas.SetupLoadScene(Loader.SceneName.Level1);
+            switch (selection)
+            {
+                case MainMenuButtons.MainMenuButton.Play:
+                    loadingCanvas.SetupLoadScene(Loader.SceneName.Level1);
+                    break;
+                case MainMenuButtons.MainMenuButton.Options:
+                    options.ToggleOptions(false);
+                    break;
+                case MainMenuButtons.MainMenuButton.About:
+                    //about
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
     private void LateUpdate()
     {
-        Vector2 screenSize = new Vector2(Screen.width, Screen.height);
-        Vector2 backgroundSize = new Vector2(background.x, background.y);
-        Vector2 mousePosition = GetMousePosition();
-        menuModel.Parameters[0].Value = mousePosition.x / screenSize.x * 200 - 100;
-        menuModel.Parameters[1].Value = mousePosition.y / screenSize.y * 200 - 100;
-        float flx = mousePosition.x / screenSize.x * backgroundSize.x * 2f - backgroundSize.x;
-        float fly = mousePosition.y / screenSize.y * backgroundSize.y * 2f - backgroundSize.y;
-        Flashlight.transform.position = new Vector2(flx, fly);
+        if (!options.OptionsActive)
+        {
+            Vector2 screenSize = new Vector2(Screen.width, Screen.height);
+            Vector2 backgroundSize = new Vector2(background.x, background.y);
+            Vector2 mousePosition = GetMousePosition();
+            menuModel.Parameters[0].Value = mousePosition.x / screenSize.x * 200 - 100;
+            menuModel.Parameters[1].Value = mousePosition.y / screenSize.y * 200 - 100;
+            float flx = mousePosition.x / screenSize.x * backgroundSize.x * 2f - backgroundSize.x;
+            float fly = mousePosition.y / screenSize.y * backgroundSize.y * 2f - backgroundSize.y;
+            Flashlight.transform.position = new Vector2(flx, fly);
+            if (inButtons)
+            {
+                selection = buttons.GetClosestButton(mousePosition);
+                menuAnimator.SetInteger(BUTTONS, (int)selection);
+            }
+        }
     }
 
     public void TurnOnObject(string objectName)
@@ -75,7 +98,12 @@ public class MainMenuManager : MonoBehaviour
         if (objectName.CompareTo(BUTTONS) != 0)
         {
             menuAnimator.SetBool(objectName, false);
-        } else inButtons = false;
+        } else
+        {
+            inButtons = false;
+            selection = MainMenuButtons.MainMenuButton.None;
+            menuAnimator.SetInteger(BUTTONS, (int) selection);
+        }
     }
 
     public Vector2 GetMousePosition()
